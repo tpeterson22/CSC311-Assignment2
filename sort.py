@@ -43,6 +43,6 @@ def timing():
     start = default_timer()
     mergeSort(nums)
     stop = default_timer()
-    print('Time: ', stop - start)
+    print(sys.argv[1]+": ",stop - start)
 
 timing()
