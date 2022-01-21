@@ -76,42 +76,52 @@ void merge(int nums[], int low, int mid, int high){
 	
 }
 
-int main(){
-	srand (time(NULL));
-	int arrayLen;
+
+int main(int argc, char *argv[]){
+
+	if(argc == 2){
+		//establish random seed
+		srand (time(NULL));
+		
+		//converts the string argument to an integer
+		int arrayLen = strtol(argv[1], NULL, 10);
+		
+		//creates an array and fills it with random numbers
+		int array1[arrayLen];
+		fill_random(array1, arrayLen);
+		
+		//Initializes a clock, starts it, sorts the array, then
+		//stops the clock, and type casts it to double.
+		clock_t t;
+		t = clock();
+		mergeSort(array1, 0, arrayLen);
+		t = clock() - t;
+		double time_taken = ((double)t)/CLOCKS_PER_SEC;	
+		
+		printf("%d : %f\n", arrayLen, time_taken);
 	
-	printf("Enter the length of your array: ");
-	scanf("%d", &arrayLen);
 	
-	int array1[arrayLen];
-	fill_random(array1, arrayLen);
-	printf("\n[ "); 
-	for(int i=0; i<arrayLen; i++){
-		printf("%d ", array1[i]);
-	}	
-	printf("]\n"); 
-	
-	clock_t t;
-	t = clock();
-	mergeSort(array1, 0, arrayLen);
-	t = clock()- t;
-	
-	printf("Time taken to merge sort: %f\n", t);
-	/*
-	printf("[ ");
-	for(int i=0;i<10;i++){
-		printf("%d, ", nums[i]);
+	} else if(argc != 2){
+		//if two arguments are not given, do not run the program.
+		// [file name and array length]
+		printf("Enter the proper amount of arguments.");
 	}
-	printf("]\n");
-	
-	mergeSort(nums, 0, 9);
-	
-	printf("[ ");
-	for(int i=0;i<10;i++){
-		printf("%d, ", nums[i]);
-	}
-	printf("]\n");
-	*/
+			
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
