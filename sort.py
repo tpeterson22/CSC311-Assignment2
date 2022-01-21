@@ -2,12 +2,14 @@ from random import randint
 from timeit import default_timer
 import sys
 
+#creates a list of random integers, between 0 and the length of the list, inclusive
 def createList(length):
     randomList=[]
     for i in range(length):
         randomList.append(randint(0,length))
     return randomList
 
+#merge sort algorithm
 def mergeSort(nums):
     if len(nums)>1:
         mid=len(nums)//2
@@ -37,6 +39,7 @@ def mergeSort(nums):
             rightIndex += 1
             listIndex += 1
 
+#creates a list of length specified by command line argument, and times how long it takes to sort it via merge sort. Outputs the number of iterations: the time elapsed.
 def timing():
     length=int(sys.argv[1])
     nums=createList(length)
