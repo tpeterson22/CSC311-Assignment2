@@ -38,9 +38,7 @@ def mergeSort(nums):
             listIndex += 1
 
 def timing():
-    length=100
-    if len(sys.argv)==2:
-        length=int(sys.argv[1])
+    length=int(sys.argv[1])
     nums=createList(length)
     start = default_timer()
     mergeSort(nums)
